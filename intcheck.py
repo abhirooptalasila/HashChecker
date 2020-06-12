@@ -33,8 +33,12 @@ def check_sha512(fname):
 
 
 if __name__ == "__main__":
-    files = [sys.argv[1], sys.argv[2]] # input arguments 
-
+    if len(sys.argv) < 3 or len(sys.argv) > 3:
+        print("Incorrect arguments\nCorrect Usage:\n\tArg1: Input File to check against\n\tArg2: File to be checked")
+        sys.exit(0)
+    else:
+        files = [sys.argv[1], sys.argv[2]] # input arguments 
+    
     print("Comparing Files:", files[0], 'and', files[1])
 
     if check_md5(files[0]) == check_md5(files[1]):
